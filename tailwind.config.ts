@@ -34,7 +34,7 @@ export default {
         },
         brand: {
           purple: {
-            light: '#C084FC',
+            light: '#D6BCFA',
             DEFAULT: '#8B5CF6',
             dark: '#7C3AED',
           },
