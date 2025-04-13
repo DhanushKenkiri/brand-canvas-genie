@@ -45,35 +45,42 @@ export default function Login() {
   };
 
   return (
-    <div className="space-y-6 bg-white p-6 rounded-lg shadow-sm border">
+    <div className="space-y-6 glass-card p-8 rounded-xl neon-border">
       <div className="space-y-2 text-center">
         <div className="flex justify-center">
-          <Sparkles className="h-8 w-8 text-brand-purple" />
+          <div className="relative">
+            <Sparkles className="h-10 w-10 text-brand-purple" />
+            <div className="absolute inset-0 rounded-full animate-glow"></div>
+          </div>
         </div>
-        <h1 className="text-2xl font-bold">Welcome back</h1>
-        <p className="text-gray-500 text-sm">
+        <h1 className="text-2xl font-bold text-gradient">Welcome back</h1>
+        <p className="text-muted-foreground text-sm">
           Enter your credentials to access your account
         </p>
       </div>
 
       {error && (
-        <Alert variant="destructive">
+        <Alert variant="destructive" className="border-red-400/30 bg-red-900/20 text-red-300">
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-muted-foreground">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@email.com" {...field} />
+                  <Input 
+                    placeholder="example@email.com" 
+                    {...field}
+                    className="bg-secondary/50 border-white/10 focus:border-brand-purple-light/50 focus:ring-brand-purple/20" 
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-400" />
               </FormItem>
             )}
           />
@@ -83,16 +90,25 @@ export default function Login() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-muted-foreground">Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="••••••••" {...field} />
+                  <Input 
+                    type="password" 
+                    placeholder="••••••••" 
+                    {...field}
+                    className="bg-secondary/50 border-white/10 focus:border-brand-purple-light/50 focus:ring-brand-purple/20" 
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-400" />
               </FormItem>
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button 
+            type="submit" 
+            className="w-full bg-brand-purple hover:bg-brand-purple-dark transition-all duration-300 text-white" 
+            disabled={isLoading}
+          >
             {isLoading ? (
               <div className="flex items-center justify-center gap-2">
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -109,9 +125,9 @@ export default function Login() {
       </Form>
 
       <div className="text-center text-sm">
-        <p className="text-gray-500">
+        <p className="text-muted-foreground">
           Don't have an account?{" "}
-          <Link to="/auth/signup" className="text-brand-purple hover:underline font-medium">
+          <Link to="/auth/signup" className="text-brand-purple-light hover:text-brand-purple hover:underline transition-colors">
             Sign up
           </Link>
         </p>

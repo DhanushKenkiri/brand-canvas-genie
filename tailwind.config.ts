@@ -35,19 +35,19 @@ export default {
         },
         brand: {
           purple: {
-            light: '#8B5CF6',
-            DEFAULT: '#6366F1',
-            dark: '#4F46E5',
+            light: '#A78BFA',
+            DEFAULT: '#8B5CF6',
+            dark: '#7C3AED',
           },
           blue: {
-            light: '#38BDF8',
-            DEFAULT: '#0EA5E9',
-            dark: '#0284C7',
+            light: '#60A5FA',
+            DEFAULT: '#3B82F6',
+            dark: '#2563EB',
           },
           gray: {
-            light: '#F9FAFB',
-            DEFAULT: '#F3F4F6',
-            dark: '#E5E7EB',
+            light: '#1F2937',
+            DEFAULT: '#111827',
+            dark: '#0F172A',
           }
         },
         secondary: {
@@ -120,13 +120,23 @@ export default {
         'pulse-slow': {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.8' }
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' }
+        },
+        'glow': {
+          '0%, 100%': { boxShadow: '0 0 12px rgba(139, 92, 246, 0.5)' },
+          '50%': { boxShadow: '0 0 24px rgba(139, 92, 246, 0.8)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.5s ease-out',
-        'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow': 'glow 3s ease-in-out infinite'
       },
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
