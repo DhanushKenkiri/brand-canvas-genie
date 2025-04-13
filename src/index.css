@@ -90,6 +90,35 @@
   .animate-fade-in {
     animation: fade-in 0.5s ease-out;
   }
+
+  .bg-grid-small-white\/5 {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  .frosted-glass {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-lg;
+  }
+
+  .neo-brutalism {
+    @apply bg-secondary border-2 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)];
+  }
+
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    padding: 2px;
+    background: linear-gradient(to right, theme('colors.brand.purple'), theme('colors.brand.blue'));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 @keyframes fade-in {
@@ -101,4 +130,70 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.brand.purple-light');
+}
+
+/* Text outline effect */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Caret animation */
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.caret-animation {
+  border-right: 0.1em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(20, end);
+}
+
+/* Background noise */
+.noise {
+  position: relative;
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
 }

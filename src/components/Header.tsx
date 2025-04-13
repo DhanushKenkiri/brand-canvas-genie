@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Menu, X, UserPlus, LogIn, LogOut, User, ShoppingBag, LayoutGrid, Palette } from "lucide-react";
+import { Sparkles, Menu, X, UserPlus, LogIn, LogOut, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,23 +14,20 @@ export function Header() {
   return (
     <header className="border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
       <div className="container flex justify-between items-center h-16 px-4">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
+        <Link to="/" className="flex items-center gap-2">
           <Sparkles className="h-6 w-6 text-brand-purple animate-pulse-slow" />
           <span className="font-bold text-xl text-gradient">Brand Canvas Genie</span>
-        </div>
+        </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-sm font-medium hover:text-brand-purple transition-colors flex items-center gap-2">
-            <LayoutGrid className="h-4 w-4" />
-            <span>Dashboard</span>
+          <Link to="/#features" className="text-sm font-medium hover:text-brand-purple transition-colors">
+            Features
           </Link>
-          <Link to="#" className="text-sm font-medium hover:text-brand-purple transition-colors flex items-center gap-2">
-            <ShoppingBag className="h-4 w-4" />
-            <span>Templates</span>
+          <Link to="/#how-it-works" className="text-sm font-medium hover:text-brand-purple transition-colors">
+            How It Works
           </Link>
-          <Link to="#" className="text-sm font-medium hover:text-brand-purple transition-colors flex items-center gap-2">
-            <Palette className="h-4 w-4" />
-            <span>Assets</span>
+          <Link to="/app" className="text-sm font-medium hover:text-brand-purple transition-colors">
+            Dashboard
           </Link>
         </nav>
         
@@ -90,17 +87,14 @@ export function Header() {
         isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
       )}>
         <div className="container py-4 px-4 flex flex-col gap-4">
-          <Link to="/" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md flex items-center gap-2">
-            <LayoutGrid className="h-4 w-4" />
-            <span>Dashboard</span>
+          <Link to="/#features" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md">
+            Features
           </Link>
-          <Link to="#" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md flex items-center gap-2">
-            <ShoppingBag className="h-4 w-4" />
-            <span>Templates</span>
+          <Link to="/#how-it-works" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md">
+            How It Works
           </Link>
-          <Link to="#" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md flex items-center gap-2">
-            <Palette className="h-4 w-4" />
-            <span>Assets</span>
+          <Link to="/app" className="text-sm font-medium p-2 hover:bg-secondary/80 rounded-md">
+            Dashboard
           </Link>
           
           <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
