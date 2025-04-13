@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { 
   Card, 
@@ -15,7 +14,7 @@ import {
   TabsTrigger 
 } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Upload, Image as ImageIcon, PaintBucket, Font } from "lucide-react";
+import { Upload, Image as ImageIcon, PaintBucket, Type } from "lucide-react";
 
 export function BrandAssetsUploader() {
   const [activeTab, setActiveTab] = useState("images");
@@ -40,7 +39,7 @@ export function BrandAssetsUploader() {
               <span>Colors</span>
             </TabsTrigger>
             <TabsTrigger value="typography" className="flex items-center gap-2">
-              <Font className="h-4 w-4" />
+              <Type className="h-4 w-4" />
               <span>Typography</span>
             </TabsTrigger>
           </TabsList>
