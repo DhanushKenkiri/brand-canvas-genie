@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -104,7 +105,7 @@
 
   .gradient-border {
     position: relative;
-    border-radius: var(--radius);\
+    border-radius: var(--radius);
   }
 
   .gradient-border::before {
